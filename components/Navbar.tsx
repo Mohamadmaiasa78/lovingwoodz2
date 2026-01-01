@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -17,17 +17,17 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Materialen', path: '/materials' },
+    { name: 'Onze Visie', path: '/about' },
+    { name: 'Expertise', path: '/services' },
+    { name: 'Realisaties', path: '/portfolio' },
+    { name: 'Atelier', path: '/materials' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#2C221C]/80 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold tracking-widest uppercase hover:opacity-70 transition-opacity text-[#F7F5F0]">
+    <nav className={`fixed w-full z-[80] transition-all duration-700 ${isScrolled ? 'bg-[#2C221C]/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'}`}>
+      <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
+        <Link to="/" className="text-xl md:text-2xl font-bold tracking-[0.4em] uppercase hover:opacity-70 transition-opacity text-white font-serif">
           Lovingwoodz
         </Link>
 
@@ -37,8 +37,8 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm tracking-widest uppercase transition-colors hover:text-[#8F9779] ${
-                location.pathname === link.path ? 'text-[#8F9779] font-semibold' : 'text-[#F7F5F0]/70'
+              className={`text-[10px] tracking-[0.3em] uppercase transition-all duration-300 hover:text-[#8F9779] ${
+                location.pathname === link.path ? 'text-white border-b border-[#8F9779] pb-1' : 'text-white/60'
               }`}
             >
               {link.name}
@@ -47,20 +47,20 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-[#F7F5F0]" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Nav */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-[#2C221C] transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 border-b border-[#8F9779]/20' : 'max-h-0'}`}>
-        <div className="flex flex-col p-6 space-y-4">
+      <div className={`md:hidden absolute top-full left-0 w-full bg-[#2C221C] transition-all duration-500 overflow-hidden ${isOpen ? 'max-h-screen border-t border-white/5 h-screen' : 'max-h-0'}`}>
+        <div className="flex flex-col p-12 space-y-8 items-center pt-24">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className="text-sm tracking-widest uppercase text-[#F7F5F0]/70 hover:text-[#8F9779]"
+              className="text-2xl font-serif italic text-white/80 hover:text-white"
             >
               {link.name}
             </Link>

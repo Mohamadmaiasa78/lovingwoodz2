@@ -13,33 +13,32 @@ const Home: React.FC = () => {
             muted 
             loop 
             playsInline 
-            className="w-full h-full object-cover brightness-[0.4]"
+            className="w-full h-full object-cover brightness-[0.5]"
           >
             <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-with-wooden-details-and-furniture-41444-large.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
         </div>
         
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#2C221C] to-transparent pointer-events-none z-10"></div>
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#2C221C]/50 to-transparent pointer-events-none z-10"></div>
 
         <div className="relative z-20 text-center px-6 max-w-4xl">
-          <h1 className="text-white text-5xl md:text-8xl mb-8 leading-tight">
+          <h1 className="text-white text-5xl md:text-8xl mb-8 leading-tight font-serif">
             Timeless Woodcraft.<br/><span className="italic font-serif text-white">Made to Measure.</span>
           </h1>
-          <p className="text-zinc-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-zinc-200 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
             Interieurs voor de mooiste momenten in je leven. Ambachtelijk vakmanschap vertaald naar moderne luxe.
           </p>
           <Link 
-            to="/contact" 
-            className="inline-flex items-center gap-3 bg-[#2C3E30]/80 backdrop-blur-sm text-white px-10 py-5 text-sm tracking-widest uppercase font-bold hover:bg-[#1C2E20] transition-all group shadow-2xl"
+            to="/portfolio" 
+            className="inline-flex items-center gap-3 bg-[#2C3E30]/90 backdrop-blur-sm text-white px-10 py-5 text-sm tracking-widest uppercase font-bold hover:bg-[#1C2E20] transition-all group shadow-2xl"
           >
-            Start je project
+            Ontdek ons werk
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>
 
-      {/* Intro Section - Video instead of image */}
+      {/* Intro Section - Clean layout with Video */}
       <section className="relative py-32 px-6 max-w-7xl mx-auto z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div className="max-w-xl">
@@ -49,7 +48,7 @@ const Home: React.FC = () => {
               Hout brengt sfeer, karakter en rust in huis. Geen mm is hetzelfde, elk stukje leeft en vertelt z’n eigen verhaal. Wij gebruiken dit unieke karakter om interieurs te maken die echt iets voor je doen.
             </p>
             <Link to="/about" className="group inline-flex items-center gap-4 text-[#8F9779] font-bold transition-all text-sm uppercase tracking-widest">
-              <span className="border-b-2 border-[#8F9779] pb-1 group-hover:text-[#F7F5F0] group-hover:border-[#F7F5F0] transition-all">Ontdek ons verhaal</span>
+              <span className="border-b-2 border-[#8F9779] pb-1 group-hover:text-white group-hover:border-white transition-all">Ontdek ons verhaal</span>
               <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
@@ -61,7 +60,7 @@ const Home: React.FC = () => {
                 muted 
                 loop 
                 playsInline 
-                className="w-full h-full object-cover rounded-sm group-hover:scale-105 transition-transform duration-1000 grayscale-[0.3] group-hover:grayscale-0"
+                className="w-full h-full object-cover rounded-sm group-hover:scale-105 transition-transform duration-1000"
               >
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-carpenter-sanding-a-piece-of-wood-34538-large.mp4" type="video/mp4" />
               </video>
@@ -70,7 +69,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Portfolio Preview - Grid with Videos */}
+      {/* Portfolio Preview - Grid with Video Loops */}
       <section className="py-32 px-6 border-t border-[#8F9779]/10">
         <div className="max-w-7xl mx-auto mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
           <div className="max-w-xl">
@@ -95,11 +94,10 @@ const Home: React.FC = () => {
                   muted 
                   loop 
                   playsInline 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale-[0.5] group-hover:grayscale-0"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale-[0.3] group-hover:grayscale-0"
                 >
                   <source src={item.video} type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
               </div>
               <span className="text-xs uppercase tracking-[0.2em] text-[#8F9779] font-bold block mb-3">{item.category}</span>
               <h3 className="text-2xl font-serif text-[#F7F5F0] group-hover:translate-x-2 transition-transform duration-500">{item.title}</h3>
